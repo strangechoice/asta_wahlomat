@@ -79,9 +79,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat</title>
+    <title>Asta Wahlomat</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="Mahlowat">
+    <meta content="Asta Wahlomat">
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
     <link href="css/<?php echo $css[$css_id];?>" rel="stylesheet" media="screen">
     
@@ -90,7 +90,7 @@
   <body>
   <script src="js/jquery-2.0.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/mahlowat.js"></script>
+  <script src="js/wahlomat.js"></script>
 
 	<div id="savemodal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
@@ -113,7 +113,7 @@
 	</div>
   
   <div class="container" style="margin-top: 20px;">
-	<img src="img/mahlowat_logo.png" title="Mahlowat Logo" class="pull-right" onclick="changeText('mahlowat')"/>
+	<img src="img/asta_wahlomat_logo.png" title="Asta Wahlomat Logo" class="pull-right" onclick="changeText('wahlomat')"/>
 	<p id="spruch" class="pull-right"></p>
 	<div class="bottom-buffer top-buffer">
   
@@ -145,7 +145,7 @@
 			<a href="index.php" title="Von vorn beginnen">neu starten</a>
 			oder den Rest der Thesen 
 			<a href="#" title="Auswertung anzeigen" onclick="gotoResultPage(resultArray)">überspringen</a>.<br />
-			Außerdem haben wir auch eine <a href="faq.php?from=mahlowat.php" onclick="gotoFAQPage(event, resultArray)" title="FAQ">FAQ-Seite</a>.
+			Außerdem haben wir auch eine <a href="faq.php?from=wahlomat.php" onclick="gotoFAQPage(event, resultArray)" title="FAQ">FAQ-Seite</a>.
 			</small>
 		
 		</div>
@@ -204,7 +204,7 @@
 	}
 	
 	function gotoFAQPage(evt, result){
-		callPage(evt, 'faq.php?from=mahlowat.php'+window.location.hash, array2str(result), '<?php echo $count; ?>');
+		callPage(evt, 'faq.php?from=wahlomat.php'+window.location.hash, array2str(result), '<?php echo $count; ?>');
 	}
 	
 	function callResult(count){

@@ -105,19 +105,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat - Ergebnis</title>
+    <title>AStA Wahlomat - Ergebnis</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="Mahlowat">
+    <meta content="AStA Wahlomat">
     
-    <meta name="image_src" content="img/mahlowat_logo.png"/>
-    <meta name="description" content="Mein Mahlowat-Ergebnis"/>
+    <meta name="image_src" content="img/asta_wahlomat_logo.png"/>
+    <meta name="description" content="Mein AStA Wahlomat-Ergebnis"/>
     
-    <meta property="og:title" content="Mahlowat"/>
+    <meta property="og:title" content="AStA Wahlomat"/>
     <meta property="og:type"  content="website"/>
-    <meta property="og:image" content="img/mahlowat_logo.png"/>
+    <meta property="og:image" content="img/asta_wahlomat_logo.png"/>
     <meta property="og:url"   content=""/>
     <meta property="og:site-name" content="akut-bonn.de"/>
-    <meta property="og:description" content="Mein Mahlowat-Ergebnis"/>
+    <meta property="og:description" content="Mein AStA Wahlomat-Ergebnis"/>
     
     
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
@@ -128,14 +128,14 @@
     
     <script src="js/jquery-2.0.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/mahlowat.js"></script>
+    <script src="js/wahlomat.js"></script>
     
     <link href="shariff/shariff.min.css" rel="stylesheet">
   </head>
   <body>
 
   <div class="container" style="margin-top: 20px;">
-      <img src="img/mahlowat_logo.png" title="Mahlowat Logo" class="pull-right" onclick="changeText()"/>
+      <img src="img/asta_wahlomat_logo.png" title="AStA Wahlomat Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
 	
       <div class="bottom-buffer top-buffer">
@@ -170,7 +170,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Schließen</button>
-					<a href="mahlowat.php" class="btn btn-primary">Thesen bearbeiten</a>
+					<a href="wahlomat.php" class="btn btn-primary">Thesen bearbeiten</a>
 				</div>
 			</div>
 		</div>
@@ -249,7 +249,7 @@
       <small>Du kannst die Befragung 
       <a href="index.php" title="Von vorn beginnen">neu starten</a><?php if($bars_only){echo '.';} else {?>,
       deine 
-      <a href="mahlowat.php" onclick="callPage(event, 'mahlowat.php', <?php echo "'$answerstring', '$count'";?>)" title="Antworten ändern">Antworten ändern</a>
+      <a href="wahlomat.php" onclick="callPage(event, 'wahlomat.php', <?php echo "'$answerstring', '$count'";?>)" title="Antworten ändern">Antworten ändern</a>
       oder die 
       <a href="multiplier.php" onclick="callPage(event, 'multiplier.php', <?php echo "'$answerstring', '$count'";?>)" title="Gewichtung ändern">Gewichtung anpassen</a>.<?php } ?><br />
       Außerdem haben wir auch eine <a href="faq.php?from=result.php<?php if($share_via_id){echo $sharelink;}?>" onclick="callPage(event, 'faq.php?from=result.php<?php if($share_via_id){echo $sharelink;} echo "', '$answerstring', '$count'";?>)" title="FAQ">FAQ-Seite</a>.

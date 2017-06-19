@@ -1,6 +1,6 @@
 <?php 
 	isset($_GET['from']) ? $back = $_GET['from'] : $back = "index.php";
-	if($back != 'index.php' and substr($back, 0, 14) != 'multiplier.php' and substr($back, 0, 10) != 'result.php' and substr($back, 0, 12) != 'mahlowat.php'){
+	if($back != 'index.php' and substr($back, 0, 14) != 'multiplier.php' and substr($back, 0, 10) != 'result.php' and substr($back, 0, 12) != 'wahlomat.php'){
 		$back = "index.php";
 	}
 	
@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat - FAQ</title>
+    <title>AStA Wahlomat - FAQ</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -29,16 +29,16 @@
   
   <script src="js/jquery-2.0.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/mahlowat.js"></script>
+  <script src="js/wahlomat.js"></script>
   
   <div class="container" style="margin-top: 20px;">
-      <img src="img/mahlowat_logo.png" title="Mahlowat Logo" class="pull-right" onclick="changeText()"/>
+      <img src="img/asta_wahlomat_logo.png" title="AStA Wahlomat Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
       <div class="bottom-buffer top-buffer">
     
     <h1>FAQ</h1>
 
-    <h4>Wer macht den Mahlowat?</h4>
+    <h4>Wer macht den AStA Wahlomat?</h4>
     <p>Lorem Ipsum.</p>
     
     <h4>Wer hat die Thesen erarbeitet?</h4>
@@ -75,13 +75,13 @@
     <p></p>
     
     <h4>Ich möchte gar nicht gezählt werden!</h4>
-    <p>Unser Webserver legt bei jedem Seitenaufruf einen Log-Eintrag an, der unter anderem einen Zeitstempel, deine IP-Adresse und die aufgerufene URL enthält. Es wäre also unaufrichtig, dir vorzumachen, dass dein Aufruf des Mahlowat nicht gezählt wird. Der Mahlowat wurde jedoch so konzipiert, dass aus den Server-Logdateien nicht ersichtlich ist, welche Antworten du ausgewählt hast. Dies sehen wir tatsächlich nur, wenn du dem am Ende explizit zustimmst.</p>
+    <p>Unser Webserver legt bei jedem Seitenaufruf einen Log-Eintrag an, der unter anderem einen Zeitstempel, deine IP-Adresse und die aufgerufene URL enthält. Es wäre also unaufrichtig, dir vorzumachen, dass dein Aufruf des AStA Wahlomat nicht gezählt wird. Der AStA Wahlomat wurde jedoch so konzipiert, dass aus den Server-Logdateien nicht ersichtlich ist, welche Antworten du ausgewählt hast. Dies sehen wir tatsächlich nur, wenn du dem am Ende explizit zustimmst.</p>
     </div>
     
     <h4>Ich habe einen Fehler gefunden!</h4>
     <p>Dann solltest du das melden. Wir freuen uns über sachdienliche Hinweise.</p>
 
-    <a class="btn btn-primary" href="<?php echo $back; ?>" onclick="callPage(event, '<?php echo $back; ?>')" title="Zurück zum Mahlowat">Zurück zum Mahlowat</a>
+    <a class="btn btn-primary" href="<?php echo $back; ?>" onclick="callPage(event, '<?php echo $back; ?>')" title="Zurück zum AStA Wahlomat">Zurück zum AStA Wahlomat</a>
   </div>
   </div>
 

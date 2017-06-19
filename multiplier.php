@@ -76,7 +76,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat - Ergebnis</title>
+    <title>AStA Wahlomat - Ergebnis</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="">
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
@@ -88,7 +88,7 @@
   
   <script src="js/jquery-2.0.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/mahlowat.js"></script>
+  <script src="js/wahlomat.js"></script>
   
     <?php if($warning){ ?>      
 	<div id="warning" class="modal fade">
@@ -105,7 +105,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
-					<a href="mahlowat.php" class="btn btn-primary">Thesen bearbeiten</a>
+					<a href="wahlomat.php" class="btn btn-primary">Thesen bearbeiten</a>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
@@ -121,7 +121,7 @@
      <?php } ?>
   
   <div class="container mow-container" style="margin-top: 20px;">
-      <img src="img/mahlowat_logo.png" title="Mahlowat Logo" class="pull-right" onclick="changeText()"/>
+      <img src="img/asta_wahlomat_logo.png" title="AStA Wahlomat Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
 	
       <div class="bottom-buffer top-buffer">
@@ -155,7 +155,7 @@
       <small>Du kannst die Befragung 
       <a href="index.php" title="Von vorn beginnen">neu starten</a>
       oder deine
-      <a href="mahlowat.php" onclick="callPage(event, 'mahlowat.php', array2str(getResultArray()), <?php echo "'$count'"; ?>)" title="Antworten ändern">Antworten ändern</a>.<br />
+      <a href="wahlomat.php" onclick="callPage(event, 'wahlomat.php', array2str(getResultArray()), <?php echo "'$count'"; ?>)" title="Antworten ändern">Antworten ändern</a>.<br />
       Außerdem haben wir auch eine <a href="faq.php?from=multiplier.php" onclick="callPage(event, 'faq.php?from=multiplier.php', array2str(getResultArray()), <?php echo "'$count'"; ?>)" title="FAQ">FAQ-Seite</a>.
       </small>
     </div>
