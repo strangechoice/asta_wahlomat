@@ -5,19 +5,19 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mahlowat</title>
+    <title>Asta Wahlomat</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="Mahlowat">
+    <meta content="Asta Wahlomat">
     
     <meta name="image_src" content="img/asta_wahlomat_logo.png"/>
     <meta name="description" content="Der AStA Wahlomat ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
     
-    <meta property="og:title" content="Mahlowat"/>
+    <meta property="og:title" content="Asta Wahlomat"/>
     <meta property="og:type"  content="website"/>
-    <meta property="og:image" content="img/mahlowat_logo.png"/>
+    <meta property="og:image" content="img/asta_wahlomat_logo.png"/>
     <meta property="og:url"   content=""/>
     <meta property="og:site-name" content="example.com"/>
-    <meta property="og:description" content="Der Mahlowat ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
+    <meta property="og:description" content="Der Asta Wahlomat ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
     
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -35,11 +35,11 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
   
   <div class="text-center">
   
-    <img src="img/mahlowat_logo.png" title="Mahlowat Logo"/>
+    <img src="img/asta_wahlomat_logo.png" title="AStA Wahlowat Logo"/>
     
-    <h1><small>Der</small> Mahlowat</h1>
+    <h1><small>Der</small>AStA Wahlomat</h1>
   </div>
-    <p>Der Mahlowat ist ein technisches Hilfsmittel, das es ermöglicht, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur $Wahl antreten.</p>
+    <p>Der Asta Wahlomat ist ein technisches Hilfsmittel, das es ermöglicht, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur $Wahl antreten.</p>
     
     <p>Er ist selbstverständlich nur als Automat ohne Hirn zu verstehen und spricht keine Wahlempfehlungen aus.</p>
     
@@ -47,7 +47,7 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
     
     <p>Für ihre Stellungnahmen zu den Thesen sind die Listen selbst verantwortlich.</p>
     
-    <p class="text-center"><a class="btn btn-large btn-primary" href="mahlowat.php" title="Mahlowat starten">Mit der Befragung beginnen!</a></p>
+    <p class="text-center"><a class="btn btn-large btn-primary" href="mahlowat.php" title="Asta Wahlomat starten">Mit der Befragung beginnen!</a></p>
     
     <p class="text-center"><a href="faq.php" title="Fragen und Antworten"><small>FAQ</small></a></p>
     
