@@ -80,9 +80,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Asta Wahlomat</title>
+  <title><?php echo $config['name']; ?></title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="Asta Wahlomat">
+    <meta content="<?php echo $config['name']; ?>">
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
     <link href="css/<?php echo $css[$css_id];?>" rel="stylesheet" media="screen">
     
@@ -114,7 +114,7 @@
 	</div>
   
   <div class="container" style="margin-top: 20px;">
-	<img src="img/asta_wahlomat_logo.png" title="Asta Wahlomat Logo" class="pull-right" onclick="changeText('wahlomat')"/>
+  <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo" class="pull-right" onclick="changeText('wahlomat')"/>
 	<p id="spruch" class="pull-right"></p>
 	<div class="bottom-buffer top-buffer">
   
