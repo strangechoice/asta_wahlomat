@@ -9,8 +9,8 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="Mahlowat">
     
-    <meta name="image_src" content="img/mahlowat_logo.png"/>
-    <meta name="description" content="Der Mahlowat ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
+    <meta name="image_src" content="img/asta_wahlomat_logo.png"/>
+    <meta name="description" content="Der AStA Wahlomat ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
     
     <meta property="og:title" content="Mahlowat"/>
     <meta property="og:type"  content="website"/>
