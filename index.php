@@ -37,7 +37,7 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
   
     <img src="img/asta_wahlomat_logo.png" title="AStA Wahlowat Logo"/>
     
-    <h1><small>Der</small>AStA Wahlomat</h1>
+    <h1><small>Der</small> AStA Wahlomat</h1>
   </div>
     <p>Der Asta Wahlomat ist ein technisches Hilfsmittel, das es ermöglicht, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur $Wahl antreten.</p>
     
