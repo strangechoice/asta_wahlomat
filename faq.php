@@ -14,11 +14,12 @@
 		$count = $_POST['count'];
 	}
     
+    require_once('config/config.php');
 ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AStA Wahlomat - FAQ</title>
+  <title><?php echo $config['name']; ?> - FAQ</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -32,13 +33,13 @@
   <script src="js/wahlomat.js"></script>
   
   <div class="container" style="margin-top: 20px;">
-      <img src="img/asta_wahlomat_logo.png" title="AStA Wahlomat Logo" class="pull-right" onclick="changeText()"/>
+      <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
       <div class="bottom-buffer top-buffer">
     
     <h1>FAQ</h1>
 
-    <h4>Wer macht den AStA Wahlomat?</h4>
+    <h4>Wer macht den <?php echo $config['name']; ?>?</h4>
     <p>Lorem Ipsum.</p>
     
     <h4>Wer hat die Thesen erarbeitet?</h4>
@@ -81,7 +82,7 @@
     <h4>Ich habe einen Fehler gefunden!</h4>
     <p>Dann solltest du das melden. Wir freuen uns über sachdienliche Hinweise.</p>
 
-    <a class="btn btn-primary" href="<?php echo $back; ?>" onclick="callPage(event, '<?php echo $back; ?>')" title="Zurück zum AStA Wahlomat">Zurück zum AStA Wahlomat</a>
+    <a class="btn btn-primary" href="<?php echo $back; ?>" onclick="callPage(event, '<?php echo $back; ?>')" title="Zurück zum <?php $config['name']; ?>">Zurück zum <?php echo $config['name']; ?></a>
   </div>
   </div>
 

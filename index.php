@@ -1,23 +1,24 @@
 <?php
 $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
+require_once('config/config.php');
 ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Asta Wahlomat</title>
+  <title><?php echo $config['name']; ?></title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="Asta Wahlomat">
+    <meta content="<?php echo $config['name']; ?>">
     
-    <meta name="image_src" content="img/asta_wahlomat_logo.png"/>
-    <meta name="description" content="Der AStA Wahlomat ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
+    <meta name="image_src" content="<?php echo $config['logo']; ?>"/>
+    <meta name="description" content="Der <?php echo $config['name']; ?> ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
     
-    <meta property="og:title" content="Asta Wahlomat"/>
+    <meta property="og:title" content="<?php echo $config['name']; ?>"/>
     <meta property="og:type"  content="website"/>
-    <meta property="og:image" content="img/asta_wahlomat_logo.png"/>
+    <meta property="og:image" content="<?php echo $config['logo']; ?>"/>
     <meta property="og:url"   content=""/>
-    <meta property="og:site-name" content="example.com"/>
-    <meta property="og:description" content="Der Asta Wahlomat ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
+    <meta property="og:site-name" content="asta.hhu.de"/>
+    <meta property="og:description" content="Der <?php $config['name']; ?> ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
     
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -35,11 +36,11 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
   
   <div class="text-center">
   
-    <img src="img/asta_wahlomat_logo.png" title="AStA Wahlowat Logo"/>
+  <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo"/>
     
-    <h1><small>Der</small> AStA Wahlomat</h1>
+  <h1><small>Der</small> <?php echo $config['name']; ?></h1>
   </div>
-    <p>Der Asta Wahlomat ist ein technisches Hilfsmittel, das es ermöglicht, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur $Wahl antreten.</p>
+    <p>Der <?php echo $config['name']; ?>ist ein technisches Hilfsmittel, das es ermöglicht, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur $Wahl antreten.</p>
     
     <p>Er ist selbstverständlich nur als Automat ohne Hirn zu verstehen und spricht keine Wahlempfehlungen aus.</p>
     
@@ -47,7 +48,7 @@ $baseurl = "http://" . $_SERVER['SERVER_NAME'] . $uri_parts[0];
     
     <p>Für ihre Stellungnahmen zu den Thesen sind die Listen selbst verantwortlich.</p>
     
-    <p class="text-center"><a class="btn btn-large btn-primary" href="wahlomat.php" title="Asta Wahlomat starten">Mit der Befragung beginnen!</a></p>
+    <p class="text-center"><a class="btn btn-large btn-primary" href="wahlomat.php" title="<?php echo $config['name']; ?> starten">Mit der Befragung beginnen!</a></p>
     
     <p class="text-center"><a href="faq.php" title="Fragen und Antworten"><small>FAQ</small></a></p>
     

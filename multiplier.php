@@ -2,6 +2,7 @@
     include 'includes/functions.php';
     include 'includes/elements.php';
     #include 'includes/theses.php';
+    require_once('config/config.php');
     
     $data_content = file_get_contents("config/data.json");
     if(!$data_content){
@@ -76,7 +77,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AStA Wahlomat - Ergebnis</title>
+  <title><?php echo $config['name']; ?> - Ergebnis</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="">
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
@@ -121,7 +122,7 @@
      <?php } ?>
   
   <div class="container mow-container" style="margin-top: 20px;">
-      <img src="img/asta_wahlomat_logo.png" title="AStA Wahlomat Logo" class="pull-right" onclick="changeText()"/>
+  <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
 	
       <div class="bottom-buffer top-buffer">

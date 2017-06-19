@@ -2,6 +2,7 @@
     include 'includes/functions.php';
     include 'includes/elements.php';
     //include 'includes/theses.php';
+    require_once('config/config.php');
     
     $data_content = file_get_contents("config/data.json");
     if(!$data_content){

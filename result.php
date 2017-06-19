@@ -2,6 +2,7 @@
     include 'includes/functions.php';
     include 'includes/elements.php';
     include 'includes/file.php';
+    require_once('config/config.php');
     
     $data_content = file_get_contents("config/data.json");
     if(!$data_content){
@@ -105,19 +106,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AStA Wahlomat - Ergebnis</title>
+  <title><?php echo $config['name']; ?> - Ergebnis</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta content="AStA Wahlomat">
+    <meta content="<?php echo $config['name']; ?>">
     
-    <meta name="image_src" content="img/asta_wahlomat_logo.png"/>
-    <meta name="description" content="Mein AStA Wahlomat-Ergebnis"/>
+    <meta name="image_src" content="<?php echo $config['logo']; ?>"/>
+    <meta name="description" content="Mein <?php echo $config['name']; ?>-Ergebnis"/>
     
-    <meta property="og:title" content="AStA Wahlomat"/>
+    <meta property="og:title" content="<?php echo $config['name']; ?>"/>
     <meta property="og:type"  content="website"/>
-    <meta property="og:image" content="img/asta_wahlomat_logo.png"/>
+    <meta property="og:image" content="<?php echo $config['logo']; ?>"/>
     <meta property="og:url"   content=""/>
     <meta property="og:site-name" content="akut-bonn.de"/>
-    <meta property="og:description" content="Mein AStA Wahlomat-Ergebnis"/>
+    <meta property="og:description" content="Mein <?php echo $config['name']; ?>-Ergebnis"/>
     
     
     <!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
@@ -135,7 +136,7 @@
   <body>
 
   <div class="container" style="margin-top: 20px;">
-      <img src="img/asta_wahlomat_logo.png" title="AStA Wahlomat Logo" class="pull-right" onclick="changeText()"/>
+    <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo" class="pull-right" onclick="changeText()"/>
 	<p id="spruch" class="pull-right"></p>
 	
       <div class="bottom-buffer top-buffer">

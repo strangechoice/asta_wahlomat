@@ -1,4 +1,5 @@
 <?php
+    include '../config/config.php';
     include '../includes/file.php';
     
     $visits = get_visits('', '../data/visits.sav');
@@ -30,7 +31,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>AStA Wahlomat - Statistik</title>
+    <title><?php echo $config['name']; ?> - Statistik</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta content="">
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
