@@ -1,4 +1,4 @@
 <?php
-    $config['name'] = 'AStA Wahlomat';
-    $config['logo'] = 'img/asta_wahlomat_logo.png';
+    $config['name'] = 'SP-Check';
+    $config['logo'] = 'img/sp_check_logo.png';
 ?>
