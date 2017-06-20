@@ -40,7 +40,7 @@ require_once('config/config.php');
     
   <h1><small>Der</small> <?php echo $config['name']; ?></h1>
   </div>
-    <p>Der <?php echo $config['name']; ?>ist ein technisches Hilfsmittel, das es ermöglicht, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur $Wahl antreten.</p>
+    <p>Der <?php echo $config['name']; ?> ist ein technisches Hilfsmittel, das es ermöglicht, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur $Wahl antreten.</p>
     
     <p>Er ist selbstverständlich nur als Automat ohne Hirn zu verstehen und spricht keine Wahlempfehlungen aus.</p>
     
