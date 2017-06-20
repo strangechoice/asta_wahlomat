@@ -40,10 +40,10 @@
     <h1>FAQ</h1>
 
     <h4>Wer macht den <?php echo $config['name']; ?>?</h4>
-    <p>Lorem Ipsum.</p>
+    <p>Der AStA der HHU Düsseldorf. Es handelt sich um einen Fork des <a href='https://github.com/HSZemi/mahlowat'>Mahlowat</a>, der vom AStA der Uni Bonn entwickelt wurde.</p>
     
     <h4>Wer hat die Thesen erarbeitet?</h4>
-    <p>Lorem Ipsum.</p>
+    <p>Der AStA der HHU Düsseldorf.</p>
     
     <h4>Wo kommen die Positionen der Gruppen her?</h4>
     <p>Den an der Wahl teilnehmenden Gruppen wurden die Thesen mit der Bitte um Stellungnahme zugeleitet. Neben der reinen Positionierung (Zustimmung/Neutral/Ablehnung/Keine Stellungnahme) konnten sie ihre Position auch in einem kurzen Absatz erläutern.</p>
