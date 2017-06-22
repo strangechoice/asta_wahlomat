@@ -89,7 +89,7 @@
   
   <script src="js/jquery-2.0.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/wahlomat.js"></script>
+  <script src="js/sp-check.js"></script>
   
     <?php if($warning){ ?>      
 	<div id="warning" class="modal fade">
@@ -106,7 +106,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
-					<a href="wahlomat.php" class="btn btn-primary">Thesen bearbeiten</a>
+					<a href="sp-check.php" class="btn btn-primary">Thesen bearbeiten</a>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
@@ -156,7 +156,7 @@
       <small>Du kannst die Befragung 
       <a href="index.php" title="Von vorn beginnen">neu starten</a>
       oder deine
-      <a href="wahlomat.php" onclick="callPage(event, 'wahlomat.php', array2str(getResultArray()), <?php echo "'$count'"; ?>)" title="Antworten ändern">Antworten ändern</a>.<br />
+      <a href="sp-check.php" onclick="callPage(event, 'sp-check.php', array2str(getResultArray()), <?php echo "'$count'"; ?>)" title="Antworten ändern">Antworten ändern</a>.<br />
       Außerdem haben wir auch eine <a href="faq.php?from=multiplier.php" onclick="callPage(event, 'faq.php?from=multiplier.php', array2str(getResultArray()), <?php echo "'$count'"; ?>)" title="FAQ">FAQ-Seite</a>.
       </small>
     </div>

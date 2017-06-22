@@ -129,7 +129,7 @@
     
     <script src="js/jquery-2.0.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/wahlomat.js"></script>
+    <script src="js/sp-check.js"></script>
     
     <link href="shariff/shariff.min.css" rel="stylesheet">
   </head>
@@ -171,7 +171,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Schließen</button>
-					<a href="wahlomat.php" class="btn btn-primary">Thesen bearbeiten</a>
+					<a href="sp-check.php" class="btn btn-primary">Thesen bearbeiten</a>
 				</div>
 			</div>
 		</div>
@@ -250,7 +250,7 @@
       <small>Du kannst die Befragung 
       <a href="index.php" title="Von vorn beginnen">neu starten</a><?php if($bars_only){echo '.';} else {?>,
       deine 
-      <a href="wahlomat.php" onclick="callPage(event, 'wahlomat.php', <?php echo "'$answerstring', '$count'";?>)" title="Antworten ändern">Antworten ändern</a>
+      <a href="sp-check.php" onclick="callPage(event, 'sp-check.php', <?php echo "'$answerstring', '$count'";?>)" title="Antworten ändern">Antworten ändern</a>
       oder die 
       <a href="multiplier.php" onclick="callPage(event, 'multiplier.php', <?php echo "'$answerstring', '$count'";?>)" title="Gewichtung ändern">Gewichtung anpassen</a>.<?php } ?><br />
       Außerdem haben wir auch eine <a href="faq.php?from=result.php<?php if($share_via_id){echo $sharelink;}?>" onclick="callPage(event, 'faq.php?from=result.php<?php if($share_via_id){echo $sharelink;} echo "', '$answerstring', '$count'";?>)" title="FAQ">FAQ-Seite</a>.

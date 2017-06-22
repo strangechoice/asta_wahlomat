@@ -147,7 +147,7 @@ function pagitem($i, $curr){
 	if($i == $curr){
 		return '<li class="active"><a href="#">'.$i."</a></li>\n";
 	} else {
-		return '<li class=""><a href="wahlomat.php?id='.$i.'">'.$i."</a></li>\n";
+		return '<li class=""><a href="sp-check.php?id='.$i.'">'.$i."</a></li>\n";
 	}
 }
 

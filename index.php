@@ -48,7 +48,7 @@ require_once('config/config.php');
     
     <p>Für ihre Stellungnahmen zu den Thesen sind die Listen selbst verantwortlich.</p>
     
-    <p class="text-center"><a class="btn btn-large btn-primary" href="wahlomat.php" title="<?php echo $config['name']; ?> starten">Mit der Befragung beginnen!</a></p>
+    <p class="text-center"><a class="btn btn-large btn-primary" href="sp-check.php" title="<?php echo $config['name']; ?> starten">Mit der Befragung beginnen!</a></p>
     
     <p class="text-center"><a href="faq.php" title="Fragen und Antworten"><small>FAQ</small></a></p>
     

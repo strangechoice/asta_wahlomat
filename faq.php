@@ -1,6 +1,6 @@
 <?php 
 	isset($_GET['from']) ? $back = $_GET['from'] : $back = "index.php";
-	if($back != 'index.php' and substr($back, 0, 14) != 'multiplier.php' and substr($back, 0, 10) != 'result.php' and substr($back, 0, 12) != 'wahlomat.php'){
+	if($back != 'index.php' and substr($back, 0, 14) != 'multiplier.php' and substr($back, 0, 10) != 'result.php' and substr($back, 0, 12) != 'sp-check.php'){
 		$back = "index.php";
 	}
 	
@@ -30,7 +30,7 @@
   
   <script src="js/jquery-2.0.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/wahlomat.js"></script>
+  <script src="js/sp-check.js"></script>
   
   <div class="container" style="margin-top: 20px;">
       <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo" class="pull-right" onclick="changeText()"/>
@@ -43,7 +43,7 @@
     <p>Der AStA der HHU Düsseldorf. Es handelt sich um einen Fork des <a href='https://github.com/HSZemi/mahlowat'>Mahlowat</a>, der vom AStA der Uni Bonn entwickelt wurde.</p>
     
     <h4>Wer hat die Thesen erarbeitet?</h4>
-    <p>Der AStA der HHU Düsseldorf.</p>
+    <p>Der AStA der HHU Düsseldorf in Kooperation mit dem Hochschulradio.</p>
     
     <h4>Wo kommen die Positionen der Gruppen her?</h4>
     <p>Den an der Wahl teilnehmenden Gruppen wurden die Thesen mit der Bitte um Stellungnahme zugeleitet. Neben der reinen Positionierung (Zustimmung/Neutral/Ablehnung/Keine Stellungnahme) konnten sie ihre Position auch in einem kurzen Absatz erläutern.</p>

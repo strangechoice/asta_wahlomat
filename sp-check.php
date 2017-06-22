@@ -91,7 +91,7 @@
   <body>
   <script src="js/jquery-2.0.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/wahlomat.js"></script>
+  <script src="js/sp-check.js"></script>
 
 	<div id="savemodal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
@@ -146,7 +146,7 @@
 			<a href="index.php" title="Von vorn beginnen">neu starten</a>
 			oder den Rest der Thesen 
 			<a href="#" title="Auswertung anzeigen" onclick="gotoResultPage(resultArray)">überspringen</a>.<br />
-			Außerdem haben wir auch eine <a href="faq.php?from=wahlomat.php" onclick="gotoFAQPage(event, resultArray)" title="FAQ">FAQ-Seite</a>.
+			Außerdem haben wir auch eine <a href="faq.php?from=sp-check.php" onclick="gotoFAQPage(event, resultArray)" title="FAQ">FAQ-Seite</a>.
 			</small>
 		
 		</div>
@@ -205,7 +205,7 @@
 	}
 	
 	function gotoFAQPage(evt, result){
-		callPage(evt, 'faq.php?from=wahlomat.php'+window.location.hash, array2str(result), '<?php echo $count; ?>');
+		callPage(evt, 'faq.php?from=sp-check.php'+window.location.hash, array2str(result), '<?php echo $count; ?>');
 	}
 	
 	function callResult(count){
