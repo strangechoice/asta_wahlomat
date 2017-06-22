@@ -31,8 +31,13 @@ require_once('config/config.php');
     
   </head>
   <body>
-  
+
   <div class="container mow-container" style="margin-top:20px;">
+
+  <div class='coop'>
+    <img src='img/asta_344x75.png' alt='AStA'/>
+    <img src='img/hochschulradio_96x96.png' alt='Hochschulradio'/>
+  </div>
   
   <div class="text-center">
   
