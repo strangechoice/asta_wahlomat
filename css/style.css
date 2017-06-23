@@ -3,6 +3,14 @@ body {
     /*padding: 0em 0.5em 1em 0.5em;*/
 }
 
+.coop {
+    height: 100px;
+}
+
+.coop img#hochschulradio {
+    margin-left: 150px;
+}
+
 .container {
   padding-right: 15px;
   padding-left: 15px;
