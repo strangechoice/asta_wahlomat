@@ -76,7 +76,7 @@
     <p></p>
     
     <h4>Ich möchte gar nicht gezählt werden!</h4>
-    <p>Unser Webserver legt bei jedem Seitenaufruf einen Log-Eintrag an, der unter anderem einen Zeitstempel, deine IP-Adresse und die aufgerufene URL enthält. Es wäre also unaufrichtig, dir vorzumachen, dass dein Aufruf des AStA Wahlomat nicht gezählt wird. Der AStA Wahlomat wurde jedoch so konzipiert, dass aus den Server-Logdateien nicht ersichtlich ist, welche Antworten du ausgewählt hast. Dies sehen wir tatsächlich nur, wenn du dem am Ende explizit zustimmst.</p>
+    <p>Unser Webserver legt bei jedem Seitenaufruf einen Log-Eintrag an, der unter anderem einen Zeitstempel, deine IP-Adresse und die aufgerufene URL enthält. Es wäre also unaufrichtig, dir vorzumachen, dass dein Aufruf des SP-Check nicht gezählt wird. Der SP-Check wurde jedoch so konzipiert, dass aus den Server-Logdateien nicht ersichtlich ist, welche Antworten du ausgewählt hast. Dies sehen wir tatsächlich nur, wenn du dem am Ende explizit zustimmst.</p>
     </div>
     
     <h4>Ich habe einen Fehler gefunden!</h4>
