@@ -93,6 +93,10 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/sp-check.js"></script>
 
+  <div class='coop' style='text-align: center'>
+    <a class='imglink' href='https://asta.hhu.de/'><img id='asta' src='img/asta_344x75.png' alt='AStA'/></a>
+    <a class='imglink' href='http://hochschulradio.de/'><img id='hochschulradio' src='img/hochschulradio_96x96.png' alt='Hochschulradio'/></a>
+  </div>
 	<div id="savemodal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">

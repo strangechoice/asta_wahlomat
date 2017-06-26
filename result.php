@@ -134,6 +134,10 @@
     <link href="shariff/shariff.min.css" rel="stylesheet">
   </head>
   <body>
+  <div class='coop' style='text-align: center'>
+    <a class='imglink' href='https://asta.hhu.de/'><img id='asta' src='img/asta_344x75.png' alt='AStA'/></a>
+    <a class='imglink' href='http://hochschulradio.de/'><img id='hochschulradio' src='img/hochschulradio_96x96.png' alt='Hochschulradio'/></a>
+  </div>
 
   <div class="container" style="margin-top: 20px;">
     <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo" class="pull-right" onclick="changeText()"/>
