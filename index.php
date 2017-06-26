@@ -49,8 +49,6 @@ require_once('config/config.php');
     
     <p>Er ist selbstverständlich nur als Automat ohne Hirn zu verstehen und spricht keine Wahlempfehlungen aus.</p>
     
-    <p>Lorem Ipsum.</p>
-    
     <p>Für ihre Stellungnahmen zu den Thesen sind die Listen selbst verantwortlich.</p>
     
     <p class="text-center"><a class="btn btn-large btn-primary" href="sp-check.php" title="<?php echo $config['name']; ?> starten">Mit der Befragung beginnen!</a></p>
