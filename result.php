@@ -149,6 +149,7 @@
 	echo "<h1>Ergebnis</h1>";
     } else {
 	echo "<h1>Ergebnisse</h1>";
+    echo "<div class='discl'>Wenn du wissen willst, wie die Listen ihre Entscheidung begr&uuml;nden, klicke auf <em>Detailansicht</em>.</div>\n";
     }
     ?>
     
