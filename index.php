@@ -11,14 +11,14 @@ require_once('config/config.php');
     <meta content="<?php echo $config['name']; ?>">
     
     <meta name="image_src" content="<?php echo $config['logo']; ?>"/>
-    <meta name="description" content="Der <?php echo $config['name']; ?> ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
+    <meta name="description" content="Der <?php echo $config['name']; ?> ist ein Angebot AStA der HHU und des Hochschulradios und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
     
     <meta property="og:title" content="<?php echo $config['name']; ?>"/>
     <meta property="og:type"  content="website"/>
     <meta property="og:image" content="<?php echo $config['logo']; ?>"/>
     <meta property="og:url"   content=""/>
-    <meta property="og:site-name" content="asta.hhu.de"/>
-    <meta property="og:description" content="Der <?php $config['name']; ?> ist ein Angebot von XYZ und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
+    <meta property="og:site-name" content="asta.hhu.de/sp-check"/>
+    <meta property="og:description" content="Der <?php $config['name']; ?> ist ein Angebot des AStA der HHU und des Hochschulradios und wurde auf Beschluss des XXXV. Studierendenparlaments der Uni Bonn entwickelt. Er ermöglicht es, zu ausgewählten Themen die eigenen Standpunkte mit denen der Listen abzugleichen, die zur Wahl antreten."/>
     
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/font-awesome.min.css">
