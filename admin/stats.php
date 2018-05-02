@@ -1,8 +1,16 @@
 <?php
     include '../config/config.php';
     include '../includes/file.php';
+	include '../includes/functions.php';
     
     $visits = get_visits('', '../data/visits.sav');
+    
+    $data_content = file_get_contents("../config/data.json");
+    if(!$data_content){
+	    echo "ERROR READING CONFIG";
+    } else {
+        $data = json_decode($data_content, true);
+    }
     
     $nocount = $visits['nocount'];
     $answers = $visits['ans'];
@@ -120,17 +128,36 @@
       <div class="well">
       <h1>Antworten</h1>
       <p>
-      <?php 
+      <?php
+		$recommends = array();
 		foreach($answers as $key => $value){
 			foreach($value as $k => $ans){
-				echo "$ans<br>\n";
+                while ( strlen($ans) < count($data['theses']) ) { $ans .= 'd'; }
+				$sel = sort_lists_by_points($data, str_split($ans));
+				echo "<span style='display: inline-block; min-width: 200px'>".$ans."</span> (".trim($sel['lists'][0]['name']).")<br>\n";
+				if ( strlen(str_replace('d', '', $ans)) > (count($data['theses'])/2) ) {
+					$rec = trim($sel['lists'][0]['name']);
+					if ( !isset($recommends[$rec]) ) $recommends[$rec] = 0;
+					$recommends[$rec]++;
+				}
 			}
 		}
       ?>
       </p>
       </div>
-     
-      
+
+      <div class="well">
+      <h1>Ergebnisse</h1>
+      <p>
+	  <?php 
+		arsort($recommends, SORT_NUMERIC);
+		foreach ($recommends as $name => $count ) {
+			echo "<span class='label' style='display: inline-block; width: 220px; color: black; text-align: left;'>".$name."</span>";
+			echo "<span class='count' style='display: inline-block; color: white; font-weight: bold; background-color: #666; border: 1px solid white; width: ".$count."px;'>".$count."</span><br>";
+		}
+      ?>
+      </p>
+      </div>
   </div>
   
   </body>
