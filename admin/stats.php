@@ -130,6 +130,8 @@
       <p>
       <?php
 		$recommends = array();
+		$theses = array();
+		$notcounted = 0; 
 		foreach($answers as $key => $value){
 			foreach($value as $k => $ans){
                 while ( strlen($ans) < count($data['theses']) ) { $ans .= 'd'; }
@@ -139,6 +141,21 @@
 					$rec = trim($sel['lists'][0]['name']);
 					if ( !isset($recommends[$rec]) ) $recommends[$rec] = 0;
 					$recommends[$rec]++;
+					foreach ( str_split($ans) as $index => $answer ) {
+						switch ($answer) {
+							case 'a': $theses[$index]['consent']++; break;
+							case 'b': $theses[$index]['neutral']++; break;
+							case 'c': $theses[$index]['defeat']++; break;
+							case 'e': $theses[$index]['consent2x']++; break;
+							case 'f': $theses[$index]['neutral2x']++; break;
+							case 'g': $theses[$index]['defeat2x']++; break;
+							case 'd': 
+							case 'h': 
+							default:  $theses[$index]['skipped']++;
+						}
+					}
+				} else {
+					$notcounted++;
 				}
 			}
 		}
@@ -148,6 +165,8 @@
 
       <div class="well">
       <h1>Ergebnisse</h1>
+	  <p>Es wurden <?php echo $notcounted; ?> Umfragen nicht gewertet, da mehr als 50% der Thesen übersprungen wurden.</p>
+	  <h2>Listen</h2>
       <p>
 	  <?php 
 		arsort($recommends, SORT_NUMERIC);
@@ -157,6 +176,38 @@
 		}
       ?>
       </p>
+	  <h2>Thesen</h2>
+	  <p>
+	  <?php
+		foreach ( $data['theses'] as $index => $thesis ) {
+		    echo "<div class='theses'>\n";
+			echo "<h4>".$thesis['s']."</h4>\n";
+			echo "<p>".$thesis['l']."</p>\n";
+			$val = 0;
+			$col = 0;
+			$total = array_sum($theses[$index]);
+			echo "<p class='bar'>\n";
+			$consent = round(($theses[$index]['consent']/$total)*100, 2); $val += $consent;
+			if ( $consent ) { echo "<span title='Zustimmung: ".$consent."%' style='background-color: #3fad46; width: ".$consent."%'></span>\n"; $col++; }
+			$consent2x = round(($theses[$index]['consent2x']/$total)*100, 2); $val += $consent2x;
+			if ( $consent2x ) { echo "<span title='Zustimmung (doppelt): ".$consent2x."%' style='background-color: #318837; width: ".$consent2x."%'></span>\n"; $col++; }
+			$neutral = round(($theses[$index]['neutral']/$total)*100, 2); $val += $neutral;
+			if ( $neutral ) { echo "<span title='Neutral: ".$neutral."%' style='background-color: #f0ad4e; width: ".$neutral."%'></span>\n"; $col++; }
+			$neutral2x = round(($theses[$index]['neutral2x']/$total)*100, 2); $val += $neutral2x;
+			if ( $neutral2x ) { echo "<span title='Neutral (doppelt): ".$neutral2x."%' style='background-color: #ec971f; width: ".$neutral2x."%'></span>\n"; $col++; }
+			$defeat = round(($theses[$index]['defeat']/$total)*100, 2); $val += $defeat;
+			if ( $defeat ) { echo "<span title='Ablehnung: ".$defeat."%' style='background-color: #d9534f; width: ".$defeat."%'></span>\n"; $col++; }
+			$defeat2x = round(($theses[$index]['defeat2x']/$total)*100, 2); $val += $defeat2x;
+			if ( $defeat2x ) { echo "<span title='Ablehnung (doppelt): ".$defeat2x."%' style='background-color: #c9302c; width: ".$defeat2x."%'></span>\n"; $col++; }
+			
+			$skipped = 100 - $val; // Design fix...
+			$real_skip = round(($theses[$index]['skipped']/$total)*100, 2);
+			if ( $skipped ) echo "<span title='Übersprungen: ".$real_skip."%' style='background-color: #aaa; width: ".$skipped."%'></span>\n";
+			echo "</p>\n";
+			echo "</div>\n";
+		}
+	  ?>
+	  </p>
       </div>
   </div>
   
