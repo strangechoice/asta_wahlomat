@@ -46,6 +46,79 @@
     <link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
     
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script type="text/javascript">
+	function downloadCSV(event) {
+	    var button = event.target;
+		var p = button.parentNode;
+		var container = p.previousElementSibling;
+		var h2 = container.previousElementSibling;
+		var type = h2.innerHTML;
+		var dateobj = new Date();
+		var filename = type + "_" + dateobj.toISOString() + ".csv";
+		var csv = getCSVData(type, container);
+		var link = document.getElementById('download_csv');
+		link.href = 'data:text/csv;charset=utf-8,'+ encodeURI(csv);
+		link.target = '_blank';
+		console.log(link.href);
+		link.download = filename;
+		link.click();
+
+		return false;
+	}
+
+	function getCSVData(type, container)
+	{
+		var csv = '';
+		var html, text;
+		var children = container.children;
+
+		if ( type == 'Listen' ) {
+			csv = '"Liste", "Empfehlungen"\n';
+			var even=true;
+			for ( var i=0; i < children.length; i++ ) {
+				html = children[i].innerHTML;
+				text = html.replace(/"/, '\\"');
+				if ( children[i].tagName == 'SPAN' ) {
+					if ( even ) {
+						csv += '"' + text + '", ';
+						even=false;
+					} else {
+						csv += '"' + text + '"\n';
+						even=true;
+					}
+				}
+			}
+		} else if ( type == 'Thesen' ) {
+			var h4, p, bar, currentSpan, nextSpan, thesis, desc, consent, consent2x, neutral, neutral2x, defeat, defeat2x, skipped;
+			var count, i;
+			csv = '"These", "Beschreibung", "Zustimmung", "Zustimmung (doppelt)", "Neutral", "Neutral (doppelt)", "Ablehnung", "Ablehnung (doppelt)", "Übersprungen"\n';
+			for ( i=0; i < children.length; i++ ) {
+				if ( children[i].tagName == 'DIV' ) {
+					h4 = children[i].firstElementChild;
+					thesis = h4.innerHTML.replace(/"/, '\\"');
+					csv += '"' + thesis + '", ';
+					p = h4.nextElementSibling;
+					desc = p.innerHTML.replace(/"/, '\\"');
+					csv += '"' + desc + '", ';
+					bar = p.nextElementSibling;
+					currentSpan = bar.firstElementChild;
+					for ( count=0; count < 6; count++ ) {
+						val = currentSpan.title.replace(/^.*: /, '');
+						csv += '"' + val + '", ';
+						nextSpan = currentSpan.nextElementSibling;
+						currentSpan = nextSpan;
+					}
+					val = currentSpan.title.replace(/^.*: /, '');
+					csv += '"' + val + '"\n';
+				}
+			}
+		} else {
+			csv = '"Empty set for type ' + type +'"\n';
+		}
+
+		return csv;
+	}
+	</script>
   </head>
   <body>
   
@@ -125,9 +198,6 @@
       <p><span class="label label-primary"><?php echo $nocount;?></span> Aufrufe wurden nicht gespeichert.</p>
       </div>
      
-      <div class="well">
-      <h1>Antworten</h1>
-      <p>
       <?php
 		$recommends = array();
 		$theses = array();
@@ -136,7 +206,8 @@
 			foreach($value as $k => $ans){
                 while ( strlen($ans) < count($data['theses']) ) { $ans .= 'd'; }
 				$sel = sort_lists_by_points($data, str_split($ans));
-				echo "<span style='display: inline-block; min-width: 200px'>".$ans."</span> (".trim($sel['lists'][0]['name']).")<br>\n";
+				$answerlist[] = $ans;
+				//echo "<span style='display: inline-block; min-width: 200px'>".$ans."</span> (".trim($sel['lists'][0]['name']).")<br>\n";
 				if ( strlen(str_replace('d', '', $ans)) > (count($data['theses'])/2) ) {
 					$rec = trim($sel['lists'][0]['name']);
 					if ( !isset($recommends[$rec]) ) $recommends[$rec] = 0;
@@ -160,8 +231,6 @@
 			}
 		}
       ?>
-      </p>
-      </div>
 
       <div class="well">
       <h1>Ergebnisse</h1>
@@ -171,45 +240,55 @@
 	  <?php 
 		arsort($recommends, SORT_NUMERIC);
 		foreach ($recommends as $name => $count ) {
-			echo "<span class='label' style='display: inline-block; width: 220px; color: black; text-align: left;'>".$name."</span>";
-			echo "<span class='count' style='display: inline-block; color: white; font-weight: bold; background-color: #666; border: 1px solid white; width: ".$count."px;'>".$count."</span><br>";
+			echo "<span class='label' style='display: inline-block; width: 220px; color: black; text-align: left;'>".$name."</span>\n";
+			echo "<span class='count' style='display: inline-block; color: white; padding-left: 2px; font-weight: bold; background-color: #666; border: 1px solid white; width: ".$count."px;'>".$count."</span><br>\n";
 		}
       ?>
       </p>
+	  <p><button onclick="downloadCSV(event)">CSV-Download</button></p>
 	  <h2>Thesen</h2>
-	  <p>
-	  <?php
+	  <div>
+<?php
 		foreach ( $data['theses'] as $index => $thesis ) {
-		    echo "<div class='theses'>\n";
-			echo "<h4>".$thesis['s']."</h4>\n";
-			echo "<p>".$thesis['l']."</p>\n";
+		    echo "\t<div class='theses'>\n";
+			echo "\t\t<h4>".$thesis['s']."</h4>\n";
+			echo "\t\t<p>".$thesis['l']."</p>\n";
 			$val = 0;
 			$col = 0;
 			$total = array_sum($theses[$index]);
-			echo "<p class='bar'>\n";
+			echo "\t\t<p class='bar'>\n";
 			$consent = round(($theses[$index]['consent']/$total)*100, 2); $val += $consent;
-			if ( $consent ) { echo "<span title='Zustimmung: ".$consent."%' style='background-color: #3fad46; width: ".$consent."%'></span>\n"; $col++; }
+			echo "\t\t\t<span title='Zustimmung: ".$consent."%' style='background-color: #3fad46; width: ".$consent."%'></span>\n"; $col++;
 			$consent2x = round(($theses[$index]['consent2x']/$total)*100, 2); $val += $consent2x;
-			if ( $consent2x ) { echo "<span title='Zustimmung (doppelt): ".$consent2x."%' style='background-color: #318837; width: ".$consent2x."%'></span>\n"; $col++; }
+			echo "\t\t\t<span title='Zustimmung (doppelt): ".$consent2x."%' style='background-color: #318837; width: ".$consent2x."%'></span>\n"; $col++;
 			$neutral = round(($theses[$index]['neutral']/$total)*100, 2); $val += $neutral;
-			if ( $neutral ) { echo "<span title='Neutral: ".$neutral."%' style='background-color: #f0ad4e; width: ".$neutral."%'></span>\n"; $col++; }
+			echo "\t\t\t<span title='Neutral: ".$neutral."%' style='background-color: #f0ad4e; width: ".$neutral."%'></span>\n"; $col++;
 			$neutral2x = round(($theses[$index]['neutral2x']/$total)*100, 2); $val += $neutral2x;
-			if ( $neutral2x ) { echo "<span title='Neutral (doppelt): ".$neutral2x."%' style='background-color: #ec971f; width: ".$neutral2x."%'></span>\n"; $col++; }
+			echo "\t\t\t<span title='Neutral (doppelt): ".$neutral2x."%' style='background-color: #ec971f; width: ".$neutral2x."%'></span>\n"; $col++;
 			$defeat = round(($theses[$index]['defeat']/$total)*100, 2); $val += $defeat;
-			if ( $defeat ) { echo "<span title='Ablehnung: ".$defeat."%' style='background-color: #d9534f; width: ".$defeat."%'></span>\n"; $col++; }
+			echo "\t\t\t<span title='Ablehnung: ".$defeat."%' style='background-color: #d9534f; width: ".$defeat."%'></span>\n"; $col++;
 			$defeat2x = round(($theses[$index]['defeat2x']/$total)*100, 2); $val += $defeat2x;
-			if ( $defeat2x ) { echo "<span title='Ablehnung (doppelt): ".$defeat2x."%' style='background-color: #c9302c; width: ".$defeat2x."%'></span>\n"; $col++; }
-			
-			$skipped = 100 - $val; // Design fix...
-			$real_skip = round(($theses[$index]['skipped']/$total)*100, 2);
-			if ( $skipped ) echo "<span title='Übersprungen: ".$real_skip."%' style='background-color: #aaa; width: ".$skipped."%'></span>\n";
-			echo "</p>\n";
-			echo "</div>\n";
+			echo "\t\t\t<span title='Ablehnung (doppelt): ".$defeat2x."%' style='background-color: #c9302c; width: ".$defeat2x."%'></span>\n"; $col++;
+			$skipped = 100 - $val; // fix some rounding issues... (not totally exact...)
+			echo "\t\t\t<span title='Übersprungen: ".$skipped."%' style='background-color: #aaa; width: ".$skipped."%'></span>\n";
+			echo "\t\t</p>\n";
+			echo "\t</div>\n";
 		}
 	  ?>
-	  </p>
+	  </div>
+	  <p style='clear: both'><button onclick="downloadCSV(event)">CSV-Download</button></p>
+      </div>
+      <div class="well">
+      <h1>Antworten</h1>
+      <p>
+	  <?php
+		  foreach ( $answerlist as $ans ) {
+			  echo $ans."<br>\n";
+		  }
+?>
+      </p>
       </div>
   </div>
-  
+  <a style='display: none' id='download_csv'>Not visible</a>
   </body>
 </html>
