@@ -131,8 +131,10 @@
      <table class="table table-bordered table-hover">
      <tr><th style="width: 200px;">Datum</th><th style="width:100px">Besucher</th><th style="width:640px;">&nbsp;</th></tr>
             <?php
+				$total = 0;
                   foreach($visits as $day => $value){
 				$dayvisitors = sizeof($value);
+				$total += $dayvisitors;
                         
                         if($max_visitors != 0){
 					$day_percentage = intval( 100 *  $dayvisitors / $max_visitors);
@@ -152,6 +154,7 @@
 				</td>
 				</tr>";
                   }
+				echo "\n<tr class='total'><td><b>Gesamt</b></td><td><b>".$total."</b></td></tr>\n";
             ?>
 
      </table>
@@ -164,11 +167,13 @@
      <table class="table table-bordered table-hover">
      <tr><th style="width: 200px;">Datum</th><th style="width:100px">Durchläufe</th><th style="width:640px;">&nbsp;</th></tr>
             <?php
+				$total = 0;
                   foreach($visits as $day => $value){
 				$dayvisits = 0;
 				foreach($value as $key => $v){
 					$dayvisits += $v;
 				}
+				$total += $dayvisits;
                         
                         if($max_visits != 0){
 					$day_percentage2 = intval( 100 *  $dayvisits / $max_visits);
@@ -188,6 +193,7 @@
 				</td>
 				</tr>";
                   }
+				echo "\n<tr class='total'><td><b>Gesamt</b></td><td><b>".$total."</b></td></tr>\n";
             ?>
 
      </table>
