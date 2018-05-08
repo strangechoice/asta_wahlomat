@@ -89,9 +89,10 @@
 				}
 			}
 		} else if ( type == 'Thesen' ) {
-			var h4, p, bar, currentSpan, nextSpan, thesis, desc, consent, consent2x, neutral, neutral2x, defeat, defeat2x, skipped;
+			var h4, p, bar, currentSpan, nextSpan, thesis, desc, val_percent, val_count;
 			var count, i;
-			csv = '"These", "Beschreibung", "Zustimmung", "Zustimmung (doppelt)", "Neutral", "Neutral (doppelt)", "Ablehnung", "Ablehnung (doppelt)", "Übersprungen"\n';
+			csv = '"These", "Beschreibung", "Zustimmung %", "Zustimmung Anzahl", "Zustimmung (doppelt) %", "Zustimmung (doppelt) Anzahl", "Neutral %", "Neutral Anzahl", ';
+			csv += '"Neutral (doppelt) %", "Neutral (doppelt) Anzahl", "Ablehnung %", "Ablehnung Anzahl", "Ablehnung (doppelt) %", "Ablehnung (doppelt) Anzahl", Übersprungen"\n';
 			for ( i=0; i < children.length; i++ ) {
 				if ( children[i].tagName == 'DIV' ) {
 					h4 = children[i].firstElementChild;
@@ -103,18 +104,22 @@
 					bar = p.nextElementSibling;
 					currentSpan = bar.firstElementChild;
 					for ( count=0; count < 6; count++ ) {
-						val = currentSpan.title.replace(/^.*: /, '');
-						csv += '"' + val + '", ';
+						val_count = currentSpan.title.replace(/^.*\[/, '').replace(/\]$/, '');
+						val_percent = currentSpan.title.replace(/^.*: /, '').replace(/ \[.*\]$/, '');
+						csv += '"' + val_percent + '", "' + val_count + '", ';
 						nextSpan = currentSpan.nextElementSibling;
 						currentSpan = nextSpan;
 					}
-					val = currentSpan.title.replace(/^.*: /, '');
-					csv += '"' + val + '"\n';
+					val_count = currentSpan.title.replace(/^.*\[/, '').replace(/\]$/, '');
+					val_percent = currentSpan.title.replace(/^.*: /, '').replace(/ \[.*\]$/, '');
+					csv += '"' + val_percent + '", "' + val_count + '"\n';
 				}
 			}
 		} else {
 			csv = '"Empty set for type ' + type +'"\n';
 		}
+
+		alert(csv);
 
 		return csv;
 	}
@@ -231,6 +236,12 @@
 							default:  $theses[$index]['skipped']++;
 						}
 					}
+					// transform empty to 0
+					foreach ( $theses as $index => $vals ) {
+						foreach ( array('consent', 'neutral', 'defeat', 'consent2x', 'neutral2x', 'defeat2x', 'skipped') as $level ) {
+							if ( ! isset($theses[$index][$level]) ) $theses[$index][$level] = 0;
+						}
+					}
 				} else {
 					$notcounted++;
 				}
@@ -264,19 +275,19 @@
 			$total = array_sum($theses[$index]);
 			echo "\t\t<p class='bar'>\n";
 			$consent = round(($theses[$index]['consent']/$total)*100, 2); $val += $consent;
-			echo "\t\t\t<span title='Zustimmung: ".$consent."%' style='background-color: #3fad46; width: ".$consent."%'></span>\n"; $col++;
+			echo "\t\t\t<span title='Zustimmung: ".$consent."% [".$theses[$index]['consent']."]' style='background-color: #3fad46; width: ".$consent."%'></span>\n"; $col++;
 			$consent2x = round(($theses[$index]['consent2x']/$total)*100, 2); $val += $consent2x;
-			echo "\t\t\t<span title='Zustimmung (doppelt): ".$consent2x."%' style='background-color: #318837; width: ".$consent2x."%'></span>\n"; $col++;
+			echo "\t\t\t<span title='Zustimmung (doppelt): ".$consent2x."% [".$theses[$index]['consent2x']."]' style='background-color: #318837; width: ".$consent2x."%'></span>\n"; $col++;
 			$neutral = round(($theses[$index]['neutral']/$total)*100, 2); $val += $neutral;
-			echo "\t\t\t<span title='Neutral: ".$neutral."%' style='background-color: #f0ad4e; width: ".$neutral."%'></span>\n"; $col++;
+			echo "\t\t\t<span title='Neutral: ".$neutral."% [".$theses[$index]['neutral']."]' style='background-color: #f0ad4e; width: ".$neutral."%'></span>\n"; $col++;
 			$neutral2x = round(($theses[$index]['neutral2x']/$total)*100, 2); $val += $neutral2x;
-			echo "\t\t\t<span title='Neutral (doppelt): ".$neutral2x."%' style='background-color: #ec971f; width: ".$neutral2x."%'></span>\n"; $col++;
+			echo "\t\t\t<span title='Neutral (doppelt): ".$neutral2x."% [".$theses[$index]['neutral2x']."]' style='background-color: #ec971f; width: ".$neutral2x."%'></span>\n"; $col++;
 			$defeat = round(($theses[$index]['defeat']/$total)*100, 2); $val += $defeat;
-			echo "\t\t\t<span title='Ablehnung: ".$defeat."%' style='background-color: #d9534f; width: ".$defeat."%'></span>\n"; $col++;
+			echo "\t\t\t<span title='Ablehnung: ".$defeat."% [".$theses[$index]['defeat']."]' style='background-color: #d9534f; width: ".$defeat."%'></span>\n"; $col++;
 			$defeat2x = round(($theses[$index]['defeat2x']/$total)*100, 2); $val += $defeat2x;
-			echo "\t\t\t<span title='Ablehnung (doppelt): ".$defeat2x."%' style='background-color: #c9302c; width: ".$defeat2x."%'></span>\n"; $col++;
-			$skipped = 100 - $val; // fix some rounding issues... (not totally exact...)
-			echo "\t\t\t<span title='Übersprungen: ".$skipped."%' style='background-color: #aaa; width: ".$skipped."%'></span>\n";
+			echo "\t\t\t<span title='Ablehnung (doppelt): ".$defeat2x."% [".$theses[$index]['defeat2x']."]' style='background-color: #c9302c; width: ".$defeat2x."%'></span>\n"; $col++;
+			$skipped = round((100 - $val), 2); // fix some rounding issues... (not totally exact...)
+			echo "\t\t\t<span title='Übersprungen: ".$skipped."% [".$theses[$index]['skipped']."]' style='background-color: #aaa; width: ".$skipped."%'></span>\n";
 			echo "\t\t</p>\n";
 			echo "\t</div>\n";
 		}
