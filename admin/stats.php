@@ -119,8 +119,6 @@
 			csv = '"Empty set for type ' + type +'"\n';
 		}
 
-		alert(csv);
-
 		return csv;
 	}
 	</script>
