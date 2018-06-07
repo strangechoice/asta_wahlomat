@@ -89,7 +89,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-  <script src="js/jquery-2.0.2.min.js"></script>
+  <script src="js/jquery-2.2.4.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/sp-check.js"></script>
 
@@ -110,8 +110,8 @@
 					<small><a href="faq.php#log" target="_blank">Ich will aber gar keinen Logeintrag!</a></small>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" onclick="callResult(false)" style="width: 100px;"><span class="glyphicon glyphicon-remove"></span> Nein</button>
-					<button type="button" class="btn btn-primary" onclick="callResult(true)" style="width: 100px;"><span class="glyphicon glyphicon-ok"></span> Ja</button>
+					<button type="button" class="btn btn-default" id="cancelbtn" style="width: 100px;"><span class="glyphicon glyphicon-remove"></span> Nein</button>
+					<button type="button" class="btn btn-primary" id="savebtn" style="width: 100px;"><span class="glyphicon glyphicon-ok"></span> Ja</button>
 				</div>
 			</div>
 		</div>
@@ -161,7 +161,7 @@
 	var activeThesis = 0;
 	var answerstring = '<?php echo $answerstring; ?>';
 	
-	$(function(){
+	$(document).ready(function(){
 		$('.tt').tooltip();
 		$('.explic').hide();
 		$('#weight').click(function(){
@@ -173,6 +173,8 @@
 				$('#weight').text('These doppelt gewichten');
 			}
 		});
+		$('button#cancelbtn').click(function () { callResult(false); });
+		$('button#savebtn').click(function () { callResult(true); });
 		$('.explanationbutton').click(function(event){
 			event.preventDefault();
 			$('.explic').toggle(200);
@@ -194,16 +196,18 @@
 		} else {
 			loadThesis(activeThesis+1);
 		}
-		
 	});
 	
 	function gotoResultPage(result){
 		count = '<?php echo $count; ?>';
 		if(count != 'true' && count != 'false'){
+			console.log('gotoResultPage(' + result + '): ' + count + ' -> savemodal');
 			$('#savemodal').modal('show');
 		} else if(count == 'true') {
+			console.log('gotoResultPage(' + result + '): ' + count + ' -> callresult(true)');
 			callResult(true);
 		} else {
+			console.log('gotoResultPage(' + result + '): ' + count + ' -> callresult(false)');
 			callResult(false);
 		}
 	}
@@ -213,17 +217,13 @@
 	}
 	
 	function callResult(count){
-		ans = array2str(resultArray);
-		if(count){
-			url = "count.php?ans=" + ans;
-			jQuery.get(url,function( data ) {
-				callPage(null, 'result.php', ans, 'true');
-			});
-		} else {
-			jQuery.get("count.php?false",function( data ) {
-				callPage(null, 'result.php', ans, 'false');
-			});
-		}
+		var ans = array2str(resultArray);
+		var url = "count.php";
+		var param = ((count)?{'false':""}:{ans:ans});
+		var nosave =  ((count)?true:false);
+		$.get(url, param, function( data ) {
+		    callPage(null, 'result.php', ans, nosave);
+		}).fail(function () { console.log('Still not calling...'); });
 	}
 	
 	function nextThesis(selection){
@@ -329,5 +329,9 @@
 	
 	
   </script>
+  <form id='countpost' style='display: none;' method='post' action='sp-check.php'>
+   <input type='hidden' id='ans' name='ans'>
+   <input type='hidden' id='count' name='count'>
+  </form>
   </body>
 </html>

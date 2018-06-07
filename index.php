@@ -27,7 +27,7 @@ require_once('config/config.php');
     
     <link href="shariff/shariff.min.css" rel="stylesheet">
     
-    <script src="js/jquery-2.0.2.min.js"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
     
   </head>
   <body>
@@ -40,8 +40,13 @@ require_once('config/config.php');
   </div>
   
   <div class="text-center">
-  
+  <?php if ($config['link']) { ?>
+  <a href="<?php echo $config['link']; ?>">
+  <?php } ?>
   <img src="<?php echo $config['logo']; ?>" title="<?php echo $config['name']; ?> Logo"/>
+  <?php if ($config['link']) { ?>
+  </a>
+  <?php } ?>
     
   <h1><small>Der</small> <?php echo $config['name']; ?></h1>
   </div>
@@ -53,7 +58,10 @@ require_once('config/config.php');
     
     <p class="text-center"><a class="btn btn-large btn-primary" href="sp-check.php" title="<?php echo $config['name']; ?> starten">Mit der Befragung beginnen!</a></p>
     
-    <p class="text-center"><a href="faq.php" title="Fragen und Antworten"><small>FAQ</small></a></p>
+    <p class="text-center">
+		<a class="btn btn-large btn-primary" href="faq.php" title="Fragen und Antworten">FAQ</a>
+		<a class="btn btn-large btn-primary" href="https://asta.hhu.de/hochschulgruppen/politische-hochschulgruppen/" title="Antretende Listen">Antretende Listen</a>
+    </p>
     
     
     

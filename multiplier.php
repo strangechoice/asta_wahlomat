@@ -87,7 +87,7 @@
   </head>
   <body>
   
-  <script src="js/jquery-2.0.2.min.js"></script>
+  <script src="js/jquery-2.2.4.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/sp-check.js"></script>
   

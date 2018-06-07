@@ -3,9 +3,9 @@ function callPage(evt, action, answerstring, count){
 	if(evt != null){
 		evt.preventDefault();
 	}
-	var html = "<input name='ans' value='"+answerstring+"'/><input name='count' value='"+count+"'/>";
-	$('<form style="display: none;" method="post"/>').attr('action', action).html(html).appendTo('body').submit();
-	
+	$('input#ans').val(answerstring);
+	$('input#count').val(count);
+	$('form#countpost').attr('action', action).submit();
 }
 
 function array2str(arr){
